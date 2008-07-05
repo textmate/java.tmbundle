@@ -2,16 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>content</key>
+	<string>case $1:
+	$2
+$0</string>
 	<key>name</key>
-	<string>Symbol List: Methods</string>
+	<string>case</string>
 	<key>scope</key>
-	<string>source.java meta.method.identifier</string>
-	<key>settings</key>
-	<dict>
-		<key>showInSymbolList</key>
-		<integer>1</integer>
-	</dict>
+	<string>source.java</string>
+	<key>tabTrigger</key>
+	<string>cs</string>
 	<key>uuid</key>
-	<string>FA4CD3FA-A79B-43E3-A432-DA53DA4A060D</string>
+	<string>7396532C-3567-4BDA-9C10-51454A2F2F6D</string>
 </dict>
 </plist>

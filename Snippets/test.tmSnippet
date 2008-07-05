@@ -2,16 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>content</key>
+	<string>public void test${1:Name}() throws Exception $0</string>
 	<key>name</key>
-	<string>Symbol List: Methods</string>
+	<string>test</string>
 	<key>scope</key>
-	<string>source.java meta.method.identifier</string>
-	<key>settings</key>
-	<dict>
-		<key>showInSymbolList</key>
-		<integer>1</integer>
-	</dict>
+	<string>source.java</string>
+	<key>tabTrigger</key>
+	<string>t</string>
 	<key>uuid</key>
-	<string>FA4CD3FA-A79B-43E3-A432-DA53DA4A060D</string>
+	<string>8B285F69-5A6A-46B4-BB31-B5F10DCB5719</string>
 </dict>
 </plist>
