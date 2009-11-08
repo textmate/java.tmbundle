@@ -47,6 +47,30 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
+					<string>keyword.other.import.static.java</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.modifier.import.java</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.terminator.java</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(import static)\b(?:\s*([^ ;$]+)\s*(;)?)?</string>
+			<key>name</key>
+			<string>meta.import.static.java</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
 					<string>keyword.other.import.java</string>
 				</dict>
 				<key>2</key>
