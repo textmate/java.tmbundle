@@ -57,6 +57,6 @@ TextMate::Executor.run(cmd, :version_args => ["--version"], :script_args => scri
     else
       line = htmlize(line)
     end
-    line = "<span style='color: red'>#{line}</span></br>"
+    line = "<span style='color: red'>#{line}</span><br>"
   end
 end
