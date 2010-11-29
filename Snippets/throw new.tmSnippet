@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>public </string>
+	<string>throw new $0</string>
 	<key>name</key>
-	<string>public</string>
+	<string>throw new</string>
 	<key>scope</key>
 	<string>source.java, source.groovy</string>
 	<key>tabTrigger</key>
-	<string>pu</string>
+	<string>tn</string>
 	<key>uuid</key>
-	<string>BD7A6DBE-0180-4E1A-A428-14D44BD88F88</string>
+	<string>E0D61777-04FC-416F-82A7-7B54C446A00B</string>
 </dict>
 </plist>

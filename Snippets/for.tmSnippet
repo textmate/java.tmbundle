@@ -9,7 +9,7 @@
 	<key>name</key>
 	<string>for</string>
 	<key>scope</key>
-	<string>source.java</string>
+	<string>source.java, source.groovy</string>
 	<key>tabTrigger</key>
 	<string>for</string>
 	<key>uuid</key>

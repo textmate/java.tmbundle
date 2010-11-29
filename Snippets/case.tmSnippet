@@ -9,7 +9,7 @@ $0</string>
 	<key>name</key>
 	<string>case</string>
 	<key>scope</key>
-	<string>source.java</string>
+	<string>source.java, source.groovy</string>
 	<key>tabTrigger</key>
 	<string>cs</string>
 	<key>uuid</key>

@@ -9,7 +9,7 @@
 	<key>name</key>
 	<string>switch</string>
 	<key>scope</key>
-	<string>source.java</string>
+	<string>source.java, source.groovy</string>
 	<key>tabTrigger</key>
 	<string>sw</string>
 	<key>uuid</key>

@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>final</string>
 	<key>scope</key>
-	<string>source.java</string>
+	<string>source.java, source.groovy</string>
 	<key>tabTrigger</key>
 	<string>fi</string>
 	<key>uuid</key>
