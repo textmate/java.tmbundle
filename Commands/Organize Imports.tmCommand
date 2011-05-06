@@ -19,17 +19,24 @@
 # * maintains any "package.*;" imports and static imports
 # * supports class names starting with lowercase characters (legacy code)
 #
+# TODO add proper support for /* */ comments.  Since these can be part of the line we can't ignore these lines
 
 require 'pp'
 
 before, imports, after, all = [], [], [], []
 
+class_defined = false
+
 STDIN.each do |line|
   all &lt;&lt; line
   
-  if line =~ /\s*^import /
+  if line =~ / (class|interface) / &amp;&amp; !(line =~ %r{^\s*(//|\*)})
+    class_defined = true
+    
+    after &lt;&lt; line
+  elsif line =~ /\s*^import /
     imports &lt;&lt; line.strip
-  elsif imports.empty? &amp;&amp; (before.empty? || !before.last.strip.empty?)
+  elsif imports.empty? &amp;&amp; !class_defined
     before &lt;&lt; line
   elsif !imports.empty? &amp;&amp; after.empty?
     # remove empty lines after the imports and before anything else
@@ -65,29 +72,72 @@ after.each do |line|
 end
 
 # Based upon the classes found in the file determine the used imports
-java_imports, other_imports = [], []
-classes.each_pair do |name, info|
-  if info[:used]
-    array = (info[:package] =~ /^java[x]?\./) ? java_imports : other_imports
-    array &lt;&lt; "import #{info[:package]}.#{name};"
+other_imports, static_imports, array = [], [], nil
+classes.each_pair do |name, class_info|
+  if class_info[:used]
+    other_imports &lt;&lt; "import #{class_info[:package]}.#{name};"
   end
 end
 
 # Include any .* imports and static imports since they can't be validated
 imports.each do |import|
-  if import =~ /\.\*\s*;/ || import =~ /^import static /
+  if import =~ /^import static/
+    static_imports &lt;&lt; import
+  elsif import =~ /\.\*\s*;/
     array = (import =~ / java[x]?\./) ? java_imports : other_imports
     array &lt;&lt; import
   end
 end
 
 # create section comprised of the import lines attempting to remove duplicate empty lines
-last_was_empty, import_lines = before.last.strip.empty?, []
-[[""], java_imports.sort, [""], other_imports.sort, [""]].flatten.each do |line|
-  # prevent multiple empty lines
-  next if last_was_empty &amp;&amp; line.strip.empty? 
+last_line_was_empty, import_lines = before.last.strip.empty?, []
 
-  last_was_empty = line.strip.empty? 
+unless static_imports.empty?
+  import_lines &lt;&lt; '' unless last_line_was_empty
+  import_lines.push(*static_imports)
+  last_line_was_empty = false
+end
+
+# Sort according to the default eclipse sort.
+sort_order = [
+  [/^import /, 4], # everything else
+  [/^import com\./, 3],
+  [/^import org\./, 2],
+  [/^import javax\./, 1], 
+  [/^import java\./, 0],
+]
+
+sorted = other_imports.sort do |a, b|
+  a_group, b_group = sort_order[0][1], sort_order[0][1]
+  
+  sort_order.each do |x|
+    a_group = x[1] if (a.match(x[0]))
+    b_group = x[1] if (b.match(x[0]))
+  end
+  
+  if a_group != b_group
+    # sort by group
+    result = a_group &lt;=&gt; b_group
+  else
+    # in the same group, sort by text
+    result = a &lt;=&gt; b
+  end
+  
+  result
+end
+
+cur_regex = nil
+
+[[""], sorted, [""]].flatten.each do |line|
+  next if last_line_was_empty &amp;&amp; line.strip.empty? # prevent multiple empty lines
+  
+  old_regex = cur_regex
+  sort_order.each do |x|
+    cur_regex = x[0] if (line.match(x[0]))
+  end
+  import_lines &lt;&lt; '' if old_regex &amp;&amp; cur_regex &amp;&amp; old_regex != cur_regex
+  
+  last_line_was_empty = line.strip.empty? 
   import_lines &lt;&lt; line
 end
 
