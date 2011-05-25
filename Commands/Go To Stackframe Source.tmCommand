@@ -42,7 +42,7 @@ end
 	<key>keyEquivalent</key>
 	<string>^~@</string>
 	<key>name</key>
-	<string>Go To JUnit Stackframe Source</string>
+	<string>Go to stackframe source</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>uuid</key>
