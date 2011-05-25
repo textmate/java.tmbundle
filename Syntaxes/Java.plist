@@ -704,7 +704,7 @@
 					<key>match</key>
 					<string>\?|:</string>
 					<key>name</key>
-					<string>keyword.control.java</string>
+					<string>keyword.control.ternary.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -720,9 +720,27 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(==|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
+					<string>(&lt;&lt;|&gt;&gt;&gt;?|~|\^)</string>
+					<key>name</key>
+					<string>keyword.operator.bitwise.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>((&amp;|\^|\||&lt;&lt;|&gt;&gt;&gt;?)=)</string>
+					<key>name</key>
+					<string>keyword.operator.assignment.bitwise.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(===?|!=|&lt;=|&gt;=|&lt;&gt;|&lt;|&gt;)</string>
 					<key>name</key>
 					<string>keyword.operator.comparison.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>([+*/%-]=)</string>
+					<key>name</key>
+					<string>keyword.operator.assignment.arithmetic.java</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -747,6 +765,12 @@
 					<string>(!|&amp;&amp;|\|\|)</string>
 					<key>name</key>
 					<string>keyword.operator.logical.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(\||&amp;)</string>
+					<key>name</key>
+					<string>keyword.operator.bitwise.java</string>
 				</dict>
 				<dict>
 					<key>match</key>

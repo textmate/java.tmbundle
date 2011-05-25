@@ -34,7 +34,7 @@ cwd = Pathname.new(Pathname.new(Dir.pwd).realpath)
 package = nil
 File.open(ENV['TM_FILEPATH'], "r") do |f|
   while (line = f.gets)
-    if line =~ /\s*package\s+([^\s;]+)/
+    if line =~ /^\s*package\s+([^\s;]+)/
       package = $1
       break
     end
