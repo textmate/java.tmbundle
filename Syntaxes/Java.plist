@@ -464,11 +464,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#methods</string>
+					<string>#variables</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#variables</string>
+					<string>#methods</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -532,6 +532,10 @@
 				<dict>
 					<key>include</key>
 					<string>#storage-modifiers</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#method-call</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -787,6 +791,49 @@
 					<string>;</string>
 					<key>name</key>
 					<string>punctuation.terminator.java</string>
+				</dict>
+			</array>
+		</dict>
+		<key>method-call</key>
+		<dict>
+			<key>begin</key>
+			<string>([\w$]+)(\()</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.method.java</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.method-parameters.begin.java</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>\)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.method-parameters.end.java</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.method-call.java</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>,</string>
+					<key>name</key>
+					<string>punctuation.definition.seperator.parameter.java</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#code</string>
 				</dict>
 			</array>
 		</dict>
@@ -1191,7 +1238,7 @@
                             (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
                         )
                         \s+
-                        [\w\d_&lt;&gt;\[\],\s]+
+                        [\w\d_&lt;&gt;\[\],\s\?]+
                         (?:=|$)
                         
         			))</string>
