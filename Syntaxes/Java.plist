@@ -1196,7 +1196,7 @@
                         
         			))</string>
 					<key>end</key>
-					<string>;</string>
+					<string>(?=;)</string>
 					<key>name</key>
 					<string>meta.definition.variable.java</string>
 					<key>patterns</key>
@@ -1241,7 +1241,7 @@
 								</dict>
 							</dict>
 							<key>end</key>
-							<string>;</string>
+							<string>(?=;)</string>
 							<key>patterns</key>
 							<array>
 								<dict>
