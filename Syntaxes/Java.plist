@@ -468,6 +468,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#variables</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#annotations</string>
 				</dict>
 				<dict>
@@ -1165,6 +1169,104 @@
 				<dict>
 					<key>include</key>
 					<string>#constants-and-special-vars</string>
+				</dict>
+			</array>
+		</dict>
+		<key>variables</key>
+		<dict>
+			<key>applyEndPatternLast</key>
+			<integer>1</integer>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>(?x:(?=
+                        (?:
+                            (?:private|protected|public|native|synchronized|abstract|threadsafe|transient|static|final) # visibility/modifier
+                                |
+                            (?:def)
+                                |
+                            (?:void|boolean|byte|char|short|int|float|long|double)
+                                |
+                            (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
+                        )
+                        \s+
+                        [\w\d_&lt;&gt;\[\],\s]+
+                        (?:=|$)
+                        
+        			))</string>
+					<key>end</key>
+					<string>;</string>
+					<key>name</key>
+					<string>meta.definition.variable.java</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\s</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>constant.variable.java</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>([A-Z_0-9]+)\s+(?=\=)</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>meta.definition.variable.name.java</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(\w[^\s,]*)\s+(?=\=)</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>=</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.assignment.java</string>
+								</dict>
+							</dict>
+							<key>end</key>
+							<string>;</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#code</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>meta.definition.variable.name.java</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(\w[^\s=]*)(?=\s*;)</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#code</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
