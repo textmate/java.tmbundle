@@ -840,7 +840,7 @@
 		<key>methods</key>
 		<dict>
 			<key>begin</key>
-			<string>(?!new)(?=\w.*\s+)(?=[^=]+\()</string>
+			<string>(?!new)(?=[\w&lt;].*\s+)(?=[^=]+\()</string>
 			<key>end</key>
 			<string>}|(?=;)</string>
 			<key>name</key>
@@ -871,6 +871,31 @@
 						<dict>
 							<key>include</key>
 							<string>#parameters</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>&lt;</string>
+					<key>end</key>
+					<string>&gt;</string>
+					<key>name</key>
+					<string>storage.type.token.java</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#object-types</string>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>&lt;</string>
+							<key>comment</key>
+							<string>This is just to support &lt;&gt;'s with no actual type prefix</string>
+							<key>end</key>
+							<string>&gt;|[^\w\s,\[\]&lt;]</string>
+							<key>name</key>
+							<string>storage.type.generic.java</string>
 						</dict>
 					</array>
 				</dict>
