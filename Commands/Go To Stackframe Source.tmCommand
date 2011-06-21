@@ -15,12 +15,18 @@ if stackframe =~ /\((.+):(.+)\)$/
   file = $1
   line = $2
   base = ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY']
+  filter = TextMate::ProjectFileFilter.new
+  
   matches = []
   Find.find(base) do |path|
-    if File.basename(path) == file
-      matches &lt;&lt; path
+    if File.directory? path
+      Find.prune if filter.skip? path
+    elsif File.basename(path) == file
+        matches &lt;&lt; path
     end
   end
+  
+  matches = matches.reject { |path| filter.skip? path }
   
   if matches.empty?
     puts "Could not find ‘#{file}’ in project"
@@ -33,8 +39,7 @@ if stackframe =~ /\((.+):(.+)\)$/
   end
 else
   puts "Stackframe does not contain a reference to source"
-end
-</string>
+end</string>
 	<key>fallbackInput</key>
 	<string>line</string>
 	<key>input</key>
