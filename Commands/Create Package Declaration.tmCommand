@@ -12,13 +12,15 @@
 # a value of the regex to use to match folder names.
 #
 
+require ENV['TM_SUPPORT_PATH'] + '/lib/textmate'
+
 package = []
 package_regex = /$(src|tst)$/ # common source folder names
 package_regex = /^(#{ENV['TM_JAVA_SOURCE_FOLDER_REGEX']})$/ if ENV['TM_JAVA_SOURCE_FOLDER_REGEX']
-
-Dir.getwd.split(File::SEPARATOR).reverse.each do |folder|
+dir = ENV['TM_DIRECTORY'] || Dir.getwd
+dir.split(File::SEPARATOR).reverse.each do |folder|
   if folder !~ package_regex
-    package &lt;&lt; folder
+    package &amp;lt;&amp;lt; folder
   else
     break
   end
@@ -29,15 +31,23 @@ if !package.empty?
 end</string>
 	<key>input</key>
 	<string>none</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>name</key>
 	<string>Create Package Declaration</string>
-	<key>output</key>
-	<string>afterSelectedText</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>atCaret</string>
 	<key>scope</key>
 	<string>source.java</string>
 	<key>tabTrigger</key>
 	<string>pa</string>
 	<key>uuid</key>
 	<string>CBFE854E-917E-4ED5-BDBC-950C6B25B816</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
