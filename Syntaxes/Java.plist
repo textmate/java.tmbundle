@@ -42,30 +42,16 @@
 			<string>meta.package.java</string>
 		</dict>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>(import static)\b\s*</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.other.import.static.java</string>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>storage.modifier.import.java</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.terminator.java</string>
-				</dict>
 			</dict>
-			<key>match</key>
-			<string>^\s*(import static)\b(?:\s*([^ ;$]+)\s*(;)?)?</string>
-			<key>name</key>
-			<string>meta.import.static.java</string>
-		</dict>
-		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -84,10 +70,94 @@
 					<string>punctuation.terminator.java</string>
 				</dict>
 			</dict>
-			<key>match</key>
-			<string>^\s*(import)\b(?:\s*([^ ;$]+)\s*(;)?)?</string>
+			<key>contentName</key>
+			<string>storage.modifier.import.java</string>
+			<key>end</key>
+			<string>\s*(?:$|(;))</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.terminator.java</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>meta.import.java</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\.</string>
+					<key>name</key>
+					<string>punctuation.separator.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\s</string>
+					<key>name</key>
+					<string>invalid.illegal.character_not_allowed_here.java</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(import)\b\s*</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.import.java</string>
+				</dict>
+			</dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.import.java</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.modifier.import.java</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.terminator.java</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>storage.modifier.import.java</string>
+			<key>end</key>
+			<string>\s*(?:$|(;))</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.terminator.java</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.import.java</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\.</string>
+					<key>name</key>
+					<string>punctuation.separator.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\s</string>
+					<key>name</key>
+					<string>invalid.illegal.character_not_allowed_here.java</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>include</key>
