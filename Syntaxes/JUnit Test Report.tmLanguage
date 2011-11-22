@@ -4,10 +4,6 @@
 <dict>
 	<key>firstLineMatch</key>
 	<string>^Testsuite:</string>
-	<key>foldingStartMarker</key>
-	<string>Testcase:</string>
-	<key>foldingStopMarker</key>
-	<string>(?=Testcase:)</string>
 	<key>keyEquivalent</key>
 	<string>^~J</string>
 	<key>name</key>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Folding (JSP)</string>
+	<key>scope</key>
+	<string>text.html.jsp</string>
+	<key>settings</key>
+	<dict>
+		<key>foldingStartMarker</key>
+		<string>/\*\*|\{\s*$</string>
+		<key>foldingStopMarker</key>
+		<string>\*\*/|^\s*\}</string>
+	</dict>
+	<key>uuid</key>
+	<string>2C5379EE-F0E8-410F-8E5F-362D5A85FDEE</string>
+</dict>
+</plist>
