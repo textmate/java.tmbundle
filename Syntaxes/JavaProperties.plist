@@ -1,70 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>scopeName</key>
+	<string>source.java.properties</string>
+	<key>keyEquivalent</key>
+	<string>^~J</string>
 	<key>fileTypes</key>
 	<array>
 		<string>properties</string>
 	</array>
-	<key>keyEquivalent</key>
-	<string>^~J</string>
-	<key>name</key>
-	<string>Java Properties</string>
+	<key>foldingStartMarker</key>
+	<string>^[a-zA-Z0-9.-_]+=.*\
+</string>
+	<key>foldingStopMarker</key>
+	<string>^(.*(?&lt;!\)
+)</string>
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.java-props</string>
-				</dict>
-			</dict>
+			<key>name</key>
+			<string>comment.line.properties</string>
 			<key>match</key>
-			<string>([#!])(.+)?$\n?</string>
-			<key>name</key>
-			<string>comment.line.number-sign.java-props</string>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>/\*</string>
-			<key>captures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.definition.comment.java-props</string>
-				</dict>
-			</dict>
-			<key>end</key>
-			<string>\*/</string>
-			<key>name</key>
-			<string>comment.block.java-props</string>
-		</dict>
-		<dict>
+			<string>^(#.*)(
+|$)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.java-props</string>
+					<string>comment.definition.comment.java-props</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>kvp.singleline.properties</string>
+			<key>match</key>
+			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)(=)(?#VALUE)(.*
+)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>markup.heading.kvp.key.java.properties</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.key-value.java-props</string>
+					<string>markup.deleted.kvp.key.java.properties</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>string.kvp.value.java.properties</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>Not compliant with the properties file spec, but this works for me, and I'm the one who counts around here.</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>kvp.dangling.space.between.key.and.equalsign.properties</string>
 			<key>match</key>
-			<string>^([^:=]+)([:=])(.*)$</string>
+			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)([ 	]+=)(?#VALUE)(.*
+)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.line.error.logfile.dangling.key.properties</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.dangling.equalsign.properties</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.deprecated.dangling.value.properties</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>kvp.multiline.properties</string>
+			<key>match</key>
+			<string>^((?:[ 	])*[^#].*\
+|(?:[ 	])*\
+|(?:[ 	])*[^#](?&lt;!=).*
+)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>string.kvp.multiline.properties</string>
+				</dict>
+			</dict>
 		</dict>
 	</array>
-	<key>scopeName</key>
-	<string>source.java-props</string>
-	<key>uuid</key>
-	<string>2A28E50A-6B1D-11D9-8689-000D93589AF6</string>
 </dict>
 </plist>
