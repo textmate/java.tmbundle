@@ -1061,6 +1061,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#annotations</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#primitive-arrays</string>
 				</dict>
 				<dict>
