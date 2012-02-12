@@ -12,6 +12,11 @@ shift
 output="$TMPDIR/tm_javamate.${TM_PID:-$LOGNAME}";
 mkdir -p "$output"
 
+PACKAGEDIR=${TM_JAVA_PACKAGE//./\/} # replace . with / in package
+SOURCEDIR=$(dirname "$SOURCE")
+
+cd "${SOURCEDIR%$PACKAGEDIR}" # Compile from root folder
+
 if [ -n "$TM_JAVA_FILEGLOB" ]; then
   "$TM_JAVAC" -d "$output" -encoding UTF8 $TM_JAVA_FILEGLOB; rc=$?;
   if (($rc >= 1)); then exit $rc; fi
