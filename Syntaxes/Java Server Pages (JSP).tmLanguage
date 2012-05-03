@@ -5,6 +5,8 @@
 	<key>fileTypes</key>
 	<array>
 		<string>jsp</string>
+		<string>jspf</string>
+		<string>tag</string>
 	</array>
 	<key>injections</key>
 	<dict>
