@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>scopeName</key>
-	<string>source.java.properties</string>
-	<key>keyEquivalent</key>
-	<string>^~J</string>
 	<key>fileTypes</key>
 	<array>
 		<string>properties</string>
@@ -16,31 +12,79 @@
 	<key>foldingStopMarker</key>
 	<string>^(.*(?&lt;!\)
 )</string>
+	<key>keyEquivalent</key>
+	<string>^~J</string>
 	<key>name</key>
 	<string>Java Properties</string>
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>name</key>
-			<string>comment.line.properties</string>
-			<key>match</key>
-			<string>^(#.*)(
-|$)</string>
-			<key>captures</key>
+			<key>begin</key>
+			<string>(^[ \t]+)?(?=#)</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>comment.definition.comment.java-props</string>
+					<string>punctuation.whitespace.comment.leading.java-props</string>
 				</dict>
 			</dict>
+			<key>end</key>
+			<string>(?!\G)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>#</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.java-props</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\n</string>
+					<key>name</key>
+					<string>comment.line.number-sign.java-props</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>kvp.singleline.properties</string>
-			<key>match</key>
-			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)(=)(?#VALUE)(.*
-)</string>
+			<key>begin</key>
+			<string>(^[ \t]+)?(?=!)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.whitespace.comment.leading.java-props</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?!\G)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>!</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.java-props</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\n</string>
+					<key>name</key>
+					<string>comment.line.exclamation.java-props</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -59,13 +103,13 @@
 					<string>string.kvp.value.java.properties</string>
 				</dict>
 			</dict>
+			<key>match</key>
+			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)(=)(?#VALUE)(.*
+)</string>
+			<key>name</key>
+			<string>kvp.singleline.properties</string>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>kvp.dangling.space.between.key.and.equalsign.properties</string>
-			<key>match</key>
-			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)([ 	]+=)(?#VALUE)(.*
-)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -84,15 +128,13 @@
 					<string>invalid.deprecated.dangling.value.properties</string>
 				</dict>
 			</dict>
+			<key>match</key>
+			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)([ 	]+=)(?#VALUE)(.*
+)</string>
+			<key>name</key>
+			<string>kvp.dangling.space.between.key.and.equalsign.properties</string>
 		</dict>
 		<dict>
-			<key>name</key>
-			<string>kvp.multiline.properties</string>
-			<key>match</key>
-			<string>^((?:[ 	])*[^#].*\
-|(?:[ 	])*\
-|(?:[ 	])*[^#](?&lt;!=).*
-)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -101,8 +143,17 @@
 					<string>string.kvp.multiline.properties</string>
 				</dict>
 			</dict>
+			<key>match</key>
+			<string>^((?:[ 	])*[^#].*\
+|(?:[ 	])*\
+|(?:[ 	])*[^#](?&lt;!=).*
+)</string>
+			<key>name</key>
+			<string>kvp.multiline.properties</string>
 		</dict>
 	</array>
+	<key>scopeName</key>
+	<string>source.java.properties</string>
 	<key>uuid</key>
 	<string>D364E829-7643-4AFF-948D-3C0D6B4EA8A4</string>
 </dict>
