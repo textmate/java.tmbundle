@@ -5,18 +5,31 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>TM_JAVAMATE_GET_ARGS=1 javamate_bootstrap.sh</string>
+	<string>#!/usr/bin/env bash
+[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
+
+TM_JAVAMATE_GET_ARGS=1 javamate_bootstrap.sh</string>
 	<key>input</key>
 	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>~@r</string>
 	<key>name</key>
 	<string>Compile &amp; Run (with args)</string>
-	<key>output</key>
-	<string>showAsHTML</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
 	<key>scope</key>
 	<string>source.java</string>
+	<key>semanticClass</key>
+	<string>process.build-and-run.java</string>
 	<key>uuid</key>
 	<string>4BC99514-9BF7-4F4F-BD84-7AD07EB81AC3</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
