@@ -5,10 +5,9 @@
 	<key>beforeRunningCommand</key>
 	<string>saveActiveFile</string>
 	<key>command</key>
-	<string>#!/usr/bin/env bash
-[[ -f "${TM_SUPPORT_PATH}/lib/bash_init.sh" ]] &amp;&amp; . "${TM_SUPPORT_PATH}/lib/bash_init.sh"
-
-javamate_bootstrap.sh</string>
+	<string>#!/bin/sh
+"$TM_BUNDLE_SUPPORT/bin/javamate.rb"
+</string>
 	<key>input</key>
 	<string>document</string>
 	<key>inputFormat</key>
@@ -23,6 +22,29 @@ javamate_bootstrap.sh</string>
 	<string>html</string>
 	<key>outputLocation</key>
 	<string>newWindow</string>
+	<key>requiredCommands</key>
+	<array>
+		<dict>
+			<key>command</key>
+			<string>java</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/bin/java</string>
+			</array>
+			<key>variable</key>
+			<string>TM_JAVA</string>
+		</dict>
+		<dict>
+			<key>command</key>
+			<string>javac</string>
+			<key>locations</key>
+			<array>
+				<string>/usr/bin/javac</string>
+			</array>
+			<key>variable</key>
+			<string>TM_JAVAC</string>
+		</dict>
+	</array>
 	<key>scope</key>
 	<string>source.java</string>
 	<key>semanticClass</key>

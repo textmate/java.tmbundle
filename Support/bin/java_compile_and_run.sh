@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+: ${TM_JAVA:=java}
+: ${TM_JAVAC:=javac}
+
 if [ "$1" = "--version" ]
 then
     "$TM_JAVA" -version 2>&1 | head -1
