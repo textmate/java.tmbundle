@@ -148,7 +148,7 @@ end
 	<key>input</key>
 	<string>selection</string>
 	<key>keyEquivalent</key>
-	<string>~@O</string>
+	<string>^#</string>
 	<key>name</key>
 	<string>Organize Imports</string>
 	<key>output</key>
