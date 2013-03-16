@@ -21,8 +21,6 @@
 #
 # TODO add proper support for /* */ comments.  Since these can be part of the line we can't ignore these lines
 
-require 'pp'
-
 before, imports, after, all = [], [], [], []
 
 class_defined = false
@@ -30,7 +28,7 @@ class_defined = false
 STDIN.each do |line|
   all &lt;&lt; line
   
-  if line =~ / (class|interface) / &amp;&amp; !(line =~ %r{^\s*(//|\*)})
+  if line =~ / (class|(@)?interface) / &amp;&amp; !(line =~ %r{^\s*(//|\*)})
     class_defined = true
     
     after &lt;&lt; line
