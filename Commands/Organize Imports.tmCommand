@@ -70,10 +70,10 @@ after.each do |line|
 end
 
 # Based upon the classes found in the file determine the used imports
-other_imports, static_imports, array = [], [], nil
+non_static_imports, static_imports = [], []
 classes.each_pair do |name, class_info|
   if class_info[:used]
-    other_imports &lt;&lt; "import #{class_info[:package]}.#{name};"
+    non_static_imports &lt;&lt; "import #{class_info[:package]}.#{name};"
   end
 end
 
@@ -82,8 +82,7 @@ imports.each do |import|
   if import =~ /^import static/
     static_imports &lt;&lt; import
   elsif import =~ /\.\*\s*;/
-    array = (import =~ / java[x]?\./) ? java_imports : other_imports
-    array &lt;&lt; import
+    non_static_imports &lt;&lt; import
   end
 end
 
@@ -105,7 +104,7 @@ sort_order = [
   [/^import java\./, 0],
 ]
 
-sorted = other_imports.sort do |a, b|
+sorted = non_static_imports.uniq.sort do |a, b|
   a_group, b_group = sort_order[0][1], sort_order[0][1]
   
   sort_order.each do |x|
