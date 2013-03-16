@@ -91,7 +91,7 @@ last_line_was_empty, import_lines = before.last.strip.empty?, []
 
 unless static_imports.empty?
   import_lines &lt;&lt; '' unless last_line_was_empty
-  import_lines.push(*static_imports)
+  import_lines.push(*static_imports.uniq)
   last_line_was_empty = false
 end
 
