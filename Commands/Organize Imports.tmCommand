@@ -91,7 +91,7 @@ last_line_was_empty, import_lines = before.last.strip.empty?, []
 
 unless static_imports.empty?
   import_lines &lt;&lt; '' unless last_line_was_empty
-  import_lines.push(*static_imports)
+  import_lines.push(*static_imports.uniq)
   last_line_was_empty = false
 end
 
@@ -104,7 +104,7 @@ sort_order = [
   [/^import java\./, 0],
 ]
 
-sorted = non_static_imports.sort do |a, b|
+sorted = non_static_imports.uniq.sort do |a, b|
   a_group, b_group = sort_order[0][1], sort_order[0][1]
   
   sort_order.each do |x|
