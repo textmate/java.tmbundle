@@ -14,7 +14,7 @@ package, class_name = nil, nil
 STDIN.each do |line|
   if line =~ /\s*package ([^;]+);/
     package = $1
-  elsif !(line =~ /^\s*\/\*/) &amp;&amp; line =~ /\b(?:class|interface)\b ([A-Z][^ ]+) /
+  elsif !(line =~ /^\s*\/\*/) &amp;&amp; line =~ /\b(?:class|interface|enum)\b ([A-Z][^ ]+) /
     class_name = $1
   end
   
