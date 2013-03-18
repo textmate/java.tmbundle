@@ -47,7 +47,7 @@ end</string>
 	<key>keyEquivalent</key>
 	<string>^~@</string>
 	<key>name</key>
-	<string>Go to stackframe source</string>
+	<string>Go to Stackframe Source</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>uuid</key>
