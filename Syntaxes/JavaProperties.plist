@@ -26,7 +26,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.whitespace.comment.leading.java-props</string>
+					<string>punctuation.whitespace.comment.leading.java-properties</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -41,13 +41,13 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.comment.java-props</string>
+							<string>punctuation.definition.comment.java-properties</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>\n</string>
 					<key>name</key>
-					<string>comment.line.number-sign.java-props</string>
+					<string>comment.line.number-sign.java-properties</string>
 				</dict>
 			</array>
 		</dict>
@@ -59,7 +59,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.whitespace.comment.leading.java-props</string>
+					<string>punctuation.whitespace.comment.leading.java-properties</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -74,86 +74,69 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.comment.java-props</string>
+							<string>punctuation.definition.comment.java-properties</string>
 						</dict>
 					</dict>
 					<key>end</key>
 					<string>\n</string>
 					<key>name</key>
-					<string>comment.line.exclamation.java-props</string>
+					<string>comment.line.exclamation.java-properties</string>
 				</dict>
 			</array>
 		</dict>
 		<dict>
-			<key>captures</key>
+			<key>begin</key>
+			<string>^\s*(([\S&amp;&amp;[^:=\\]]|\\.)+)\s*([:=])?</string>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>markup.heading.kvp.key.java.properties</string>
-				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>markup.deleted.kvp.key.java.properties</string>
+					<string>support.constant.java-properties</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\\([tnfr"'\\ ]|u\h{4})</string>
+							<key>name</key>
+							<string>constant.character.escape.java-properties</string>
+						</dict>
+					</array>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>string.kvp.value.java.properties</string>
+					<string>punctuation.separator.key-value.java-properties</string>
 				</dict>
 			</dict>
-			<key>match</key>
-			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)(=)(?#VALUE)(.*
-)</string>
+			<key>end</key>
+			<string>\n</string>
 			<key>name</key>
-			<string>kvp.singleline.properties</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
+			<string>meta.key-pair.java-properties</string>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>begin</key>
+					<string>(?=\S)</string>
+					<key>end</key>
+					<string>(?&lt;!\\)(?=\n)</string>
 					<key>name</key>
-					<string>meta.line.error.logfile.dangling.key.properties</string>
+					<string>string.unquoted.java-properties</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\\([tnfr"'\\]|u\h{4}|)</string>
+							<key>name</key>
+							<string>constant.character.escape.java-properties</string>
+						</dict>
+					</array>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>invalid.illegal.dangling.equalsign.properties</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>invalid.deprecated.dangling.value.properties</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^(?#KEY)(?:[ 	])*([a-zA-Z][^&lt;&gt;/][a-zA-Z0-9-_.]*)([ 	]+=)(?#VALUE)(.*
-)</string>
-			<key>name</key>
-			<string>kvp.dangling.space.between.key.and.equalsign.properties</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>string.kvp.multiline.properties</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^((?:[ 	])*[^#].*\
-|(?:[ 	])*\
-|(?:[ 	])*[^#](?&lt;!=).*
-)</string>
-			<key>name</key>
-			<string>kvp.multiline.properties</string>
+			</array>
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>source.java.properties</string>
+	<string>source.java-properties</string>
 	<key>uuid</key>
 	<string>D364E829-7643-4AFF-948D-3C0D6B4EA8A4</string>
 </dict>

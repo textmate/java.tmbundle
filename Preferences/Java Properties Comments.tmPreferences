@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Java Properties Comments</string>
+	<string>Comments: Properties File</string>
 	<key>scope</key>
-	<string>source.java-props</string>
+	<string>source.java-properties</string>
 	<key>settings</key>
 	<dict>
 		<key>shellVariables</key>
