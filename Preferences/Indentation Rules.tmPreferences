@@ -13,7 +13,7 @@
 		<key>increaseIndentPattern</key>
 		<string>^.*\{(\}|[^}"']*)$|^\s*(public|private|protected):\s*$</string>
 		<key>indentNextLinePattern</key>
-		<string>^(?!(.*[};:])?\s*(//|/\*.*\*/\s*$)).*[^\s;:{}]\s*$</string>
+		<string>^(?!\s*@\w+(\(|\s*$)|(.*[};:])?\s*(//|/\*.*\*/\s*$)).*[^\s;:{}]\s*$</string>
 	</dict>
 	<key>uuid</key>
 	<string>20E93106-18CF-4BA3-9DA3-8F0C955DB774</string>
