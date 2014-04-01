@@ -770,9 +770,75 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\.?[0-9]*)|(\.[0-9]+))((e|E)(\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\b</string>
+					<string>\b0[xX]\h([\h_]*\h)?[lL]?(?!\w|\.)</string>
 					<key>name</key>
-					<string>constant.numeric.java</string>
+					<string>constant.numeric.hex.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b0[0-7_]*[0-7][lL]?\b</string>
+					<key>name</key>
+					<string>constant.numeric.octal.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b0[bB][01]([01_]*[01])?[lL]?\b</string>
+					<key>name</key>
+					<string>constant.numeric.binary.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\b(0|[1-9]([0-9_]*[0-9])?)[lL]?(?!\w|\.)</string>
+					<key>name</key>
+					<string>constant.numeric.integer.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+						(?&lt;!\w)										# Ensure word boundry
+						(?&gt;
+							0[xX]									# Start literal
+							(\h([\h_]*\h)?)?						# Optional Number
+							(
+								(?&lt;=\h)\.							# A number must exist on
+						      | \.(?=\h)							#   one side of the decimal
+						      | (?&lt;=\h)								# Decimal not required
+							)
+							(\h([\h_]*\h)?)?						# Optional Number
+							[pP]									# Exponent Indicator
+							[+-]?(0|[1-9]([0-9_]*[0-9])?)			# Signed Integer
+							[fFdD]?									# Float Type Suffix
+						)
+						(?!\w)										# Ensure word boundry
+					</string>
+					<key>name</key>
+					<string>constant.numeric.hex-float.java</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?x)
+						(?&lt;!\w)											# Ensure word boundry
+						(?&gt;
+							(
+								(0|[1-9]([0-9_]*[0-9])?)				# Leading digits
+								(?=[eEfFdD.])							# Allow for numbers without .
+							)?
+							(
+								(?&lt;=[0-9])(?=[eEfFdD])					# Allow for numbers without .
+							  | \.
+							)
+							(
+								[0-9]([0-9_]*[0-9])?					# Numbers after .
+							)?
+							(
+								[eE][+-]?(0|[1-9]([0-9_]*[0-9])?)		# Exponent
+							)?
+							[fFdD]?										# Float Type Suffix
+						)
+						(?!\w)											# Ensure word boundry
+					</string>
+					<key>name</key>
+					<string>constant.numeric.float.java</string>
 				</dict>
 				<dict>
 					<key>captures</key>
