@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>static public final String ${1:var} = "$2";$0</string>
+	<string>public static final String ${1:var} = "$2";$0</string>
 	<key>name</key>
 	<string>constant string</string>
 	<key>scope</key>
