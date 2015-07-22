@@ -82,12 +82,6 @@
 							<key>name</key>
 							<string>constant.character.escape.java-properties</string>
 						</dict>
-						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>invalid.illegal.character.escape.java-properties</string>
-						</dict>
 					</array>
 				</dict>
 				<key>3</key>
@@ -124,12 +118,6 @@
 					<key>name</key>
 					<string>constant.character.escape.java-properties</string>
 				</dict>
-				<dict>
-					<key>match</key>
-					<string>\\.</string>
-					<key>name</key>
-					<string>invalid.illegal.character.escape.java-properties</string>
-				</dict>
 			</array>
 		</dict>
 		<key>property-name</key>
@@ -152,12 +140,6 @@
 							<string>\\(?:[ \t:=\\ntfr\"']|u[0-9A-Fa-f]{4})</string>
 							<key>name</key>
 							<string>constant.character.escape.java-properties</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>\\.</string>
-							<key>name</key>
-							<string>invalid.illegal.character.escape.java-properties</string>
 						</dict>
 					</array>
 				</dict>
