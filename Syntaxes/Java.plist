@@ -920,6 +920,10 @@
 					<key>include</key>
 					<string>#comments</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#annotations</string>
+				</dict>
 			</array>
 		</dict>
 		<key>keywords</key>
