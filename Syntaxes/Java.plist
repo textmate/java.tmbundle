@@ -239,7 +239,7 @@
 							<key>match</key>
 							<string>,</string>
 							<key>name</key>
-							<string>punctuation.seperator.property.java</string>
+							<string>punctuation.separator.property.java</string>
 						</dict>
 					</array>
 				</dict>
@@ -1544,7 +1544,7 @@
 								<key>1</key>
 								<dict>
 									<key>name</key>
-									<string>constant.variable.java</string>
+									<string>constant.other.variable.java</string>
 								</dict>
 							</dict>
 							<key>match</key>
