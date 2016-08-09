@@ -649,6 +649,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#annotations</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#keywords</string>
 				</dict>
 				<dict>
