@@ -774,7 +774,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b0[xX]\h([\h_]*\h)?[lL]?(?!\w|\.)</string>
+					<string>\b0[xX][0-9A-Fa-f]([0-9A-Fa-f_]*[0-9A-Fa-f])?[lL]?(?!\w|\.)</string>
 					<key>name</key>
 					<string>constant.numeric.hex.java</string>
 				</dict>
@@ -802,13 +802,13 @@
 						(?&lt;!\w)										# Ensure word boundry
 						(?&gt;
 							0[xX]									# Start literal
-							(\h([\h_]*\h)?)?						# Optional Number
+							([0-9A-Fa-f]([0-9A-Fa-f_]*[0-9A-Fa-f])?)?						# Optional Number
 							(
-								(?&lt;=\h)\.							# A number must exist on
-						      | \.(?=\h)							#   one side of the decimal
-						      | (?&lt;=\h)								# Decimal not required
+								(?&lt;=[0-9A-Fa-f])\.							# A number must exist on
+						      | \.(?=[0-9A-Fa-f])							#   one side of the decimal
+						      | (?&lt;=[0-9A-Fa-f])								# Decimal not required
 							)
-							(\h([\h_]*\h)?)?						# Optional Number
+							([0-9A-Fa-f]([0-9A-Fa-f_]*[0-9A-Fa-f])?)?						# Optional Number
 							[pP]									# Exponent Indicator
 							[+-]?(0|[1-9]([0-9_]*[0-9])?)			# Signed Integer
 							[fFdD]?									# Float Type Suffix
