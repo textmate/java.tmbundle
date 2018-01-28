@@ -2,6 +2,15 @@
 
 You can install this bundle in TextMate by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
 
+# Settings
+
+If you have Java installed and TextMate does not find your JDK and shows the error message `No Java runtime present, requesting install`, you have to tell TextMate where to find the `java` and `javac` executables. Go to the *Preferences*, open the *Variables* section and add two entries using the `+` button: `TM_JAVA`, which points to your `java` executable and `TM_JAVAC`, which points to your `javac` executable. Example:
+
+|   | Variable Name  | Value |
+| - | -------------- | ----- |
+|  :white_check_mark: | TM_JAVA  | /Users/*«yourname»*/jdk1.8.0/bin/java |
+|  :white_check_mark: | TM_JAVAC | /Users/*«yourname»*/jdk1.8.0/bin/javac |
+
 # General
 
 * [Bundle Styleguide](http://kb.textmate.org/bundle_styleguide) — _before you make changes_
