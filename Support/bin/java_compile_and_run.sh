@@ -36,5 +36,5 @@ then
 	CLASS="$TM_JAVA_PACKAGE.$CLASS"
 fi
 
-CLASSPATH="$output:$CLASSPATH" "$TM_JAVA" -Dfile.encoding=utf-8 "$CLASS" $@;
+CLASSPATH="$output:$CLASSPATH" "$TM_JAVA" -Dfile.encoding=utf-8 "$CLASS" "$@";
 exit $?;
