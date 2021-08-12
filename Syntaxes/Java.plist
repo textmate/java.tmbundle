@@ -948,7 +948,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(return|break|case|continue|default|do|while|for|switch|if|else)\b</string>
+					<string>\b(return|break|yield|case|continue|default|do|while|for|switch|if|else)\b</string>
 					<key>name</key>
 					<string>keyword.control.java</string>
 				</dict>
