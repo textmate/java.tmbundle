@@ -1522,12 +1522,12 @@
                                 |
                             (?:def)
                                 |
-                            (?:void|boolean|byte|char|short|int|float|long|double)
+                            (?:void|var|boolean|byte|char|short|int|float|long|double)
                                 |
                             (?:(?:[a-z]\w*\.)*[A-Z]+\w*) # object type
                         )
                         \s+
-                        (?!private|protected|public|native|synchronized|volatile|abstract|threadsafe|transient|static|final|def|void|boolean|byte|char|short|int|float|long|double)
+                        (?!private|protected|public|native|synchronized|volatile|abstract|threadsafe|transient|static|final|def|void|var|boolean|byte|char|short|int|float|long|double)
                         [\w\d_&lt;&gt;\[\],\?][\w\d_&lt;&gt;\[\],\? \t]*
                         (?:=|$)
                         
